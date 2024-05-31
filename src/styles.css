@@ -33,7 +33,6 @@ body {
     padding: 20px;
 }
 
-
 input[type="text"] {
     padding: 10px;
     font-size: 16px;
@@ -42,7 +41,6 @@ input[type="text"] {
     width: 100%;
     margin-bottom: 20px;
 }
-
 
 button {
     padding: 10px 20px;

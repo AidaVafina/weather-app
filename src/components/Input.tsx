@@ -1,29 +1,33 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 interface InputProps {
-    placeholder: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onSubmit: () => void;
+  placeholder: string;
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: () => void;
 }
 
-const Input: React.FC<InputProps> = ({ placeholder, value, onChange, onSubmit }) => {
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        onSubmit();
-    };
+const Input: React.FC<InputProps> = ({
+  placeholder,
+  value,
+  onChange,
+  onSubmit,
+}) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange(e);
+    onSubmit(); // Call onSubmit whenever the input changes
+  };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder={placeholder}
-                value={value}
-                onChange={onChange}
-            />
-            <button type="submit">Search</button>
-        </form>
-    );
+  return (
+    <form>
+      <input
+        type="text"
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+      />
+    </form>
+  );
 };
 
 export default Input;
