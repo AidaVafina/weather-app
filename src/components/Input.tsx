@@ -15,7 +15,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e);
-    onSubmit(); // Call onSubmit whenever the input changes
+    onSubmit();
   };
 
   return (
